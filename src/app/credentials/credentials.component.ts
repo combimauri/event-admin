@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import * as jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 import { PostulantsService } from '../shared/services/postulants.service';
 import { Postulant } from '../shared/models/postulant.model';
@@ -9,8 +9,8 @@ import { PostulantCredentialComponent } from '../shared/components/postulant-cre
 
 const firstLineTop = 20;
 const secondLineTop = 525;
-const firstItemLeft = 6;
-const secondItemLeft = 311;
+const firstItemLeft = 15;
+const secondItemLeft = 315;
 const JPEG = 'JPEG';
 
 @Component({
@@ -43,19 +43,47 @@ export class CredentialsComponent implements OnInit {
 
       switch (counter) {
         case 1:
-          pdf.addImage(credentialData, JPEG, firstItemLeft, firstLineTop);
+          pdf.addImage(
+            credentialData,
+            JPEG,
+            firstItemLeft,
+            firstLineTop,
+            280,
+            455,
+          );
           drawCounter++;
           break;
         case 2:
-          pdf.addImage(credentialData, JPEG, secondItemLeft, firstLineTop);
+          pdf.addImage(
+            credentialData,
+            JPEG,
+            secondItemLeft,
+            firstLineTop,
+            280,
+            455,
+          );
           drawCounter++;
           break;
         case 3:
-          pdf.addImage(credentialData, JPEG, firstItemLeft, secondLineTop);
+          pdf.addImage(
+            credentialData,
+            JPEG,
+            firstItemLeft,
+            secondLineTop,
+            280,
+            455,
+          );
           drawCounter++;
           break;
         case 4:
-          pdf.addImage(credentialData, JPEG, secondItemLeft, secondLineTop);
+          pdf.addImage(
+            credentialData,
+            JPEG,
+            secondItemLeft,
+            secondLineTop,
+            280,
+            455,
+          );
           drawCounter++;
           if (quantityOfCredentials !== drawCounter) {
             pdf.addPage();

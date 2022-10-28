@@ -21,13 +21,13 @@ export class AssistantsComponent implements OnInit, OnDestroy {
   assistantsSubscription: Subscription;
 
   constructor(
-    public postunlantsService: PostulantsService,
+    public postulantsService: PostulantsService,
     private auth: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.currentUser$ = this.auth.getCurrentUser();
-    this.assistantsSubscription = this.postunlantsService
+    this.assistantsSubscription = this.postulantsService
       .getConfirmedPostulants()
       .subscribe((assistants) => {
         this.assistants = assistants;
@@ -60,7 +60,7 @@ export class AssistantsComponent implements OnInit, OnDestroy {
   }
 
   saveAssistantRFID(currentUser: AuthUser, assistant: Postulant): void {
-    this.postunlantsService.giveRFIDToPostulant(
+    this.postulantsService.giveRFIDToPostulant(
       currentUser,
       assistant,
       assistant.rfid,

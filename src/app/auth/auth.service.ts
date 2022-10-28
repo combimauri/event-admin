@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { Observable, of } from 'rxjs';
 import { switchMap, first } from 'rxjs/operators';
@@ -34,7 +34,7 @@ export class AuthService {
   login(email: string, password: string): void {
     this.loading = true;
 
-    this.afAuth.auth
+    this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((credential) => {
         this.message = '';
@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.afAuth.auth
+    this.afAuth
       .signOut()
       .then((_) => {
         this.router.navigate(['/login']);

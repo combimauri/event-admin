@@ -85,10 +85,7 @@
                     type="checkbox"
                     [checked]="assistant.checkIn"
                     (change)="
-                      postunlantsService.checkInAssistant(
-                        currentUser,
-                        assistant
-                      )
+                      postulantsService.checkInAssistant(currentUser, assistant)
                     "
                   />
                   <span>CheckIn</span>
@@ -101,7 +98,7 @@
                     [checked]="assistant.feeForLunchReceived"
                     [disabled]="!assistant.checkIn"
                     (change)="
-                      postunlantsService.markFeeForLunchAsReceived(
+                      postulantsService.markFeeForLunchAsReceived(
                         currentUser,
                         assistant
                       )
@@ -117,7 +114,7 @@
                     [checked]="assistant.firstSnackDelivered"
                     [disabled]="!assistant.checkIn"
                     (change)="
-                      postunlantsService.markFirstSnackAsDelivered(
+                      postulantsService.markFirstSnackAsDelivered(
                         currentUser,
                         assistant
                       )
@@ -135,7 +132,7 @@
                       !assistant.checkIn || !assistant.feeForLunchReceived
                     "
                     (change)="
-                      postunlantsService.markLunchAsDelivered(
+                      postulantsService.markLunchAsDelivered(
                         currentUser,
                         assistant
                       )
@@ -151,7 +148,7 @@
                     [checked]="assistant.secondSnackDelivered"
                     [disabled]="!assistant.checkIn"
                     (change)="
-                      postunlantsService.markSecondSnackAsDelivered(
+                      postulantsService.markSecondSnackAsDelivered(
                         currentUser,
                         assistant
                       )

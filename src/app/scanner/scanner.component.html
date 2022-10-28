@@ -45,12 +45,9 @@
       <div class="center-align">
         <p>How many points you want to give to the student?</p>
         <star-rating
-          [value]="postulantPoints"
-          checkedcolor="red"
-          uncheckedcolor="black"
-          size="50px"
-          readonly="false"
-          (rate)="setPostulantRate($event)"
+          starType="svg"
+          [rating]="postulantPoints"
+          (starClickChange)="setPostulantRate($event)"
         ></star-rating>
       </div>
     </div>

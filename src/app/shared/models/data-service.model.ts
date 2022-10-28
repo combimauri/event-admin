@@ -1,7 +1,7 @@
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 
 import { Observable, from, of } from 'rxjs';
 import { map } from 'rxjs/operators';
