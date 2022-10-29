@@ -1,4 +1,4 @@
-import { FirebaseConfig } from './keys';
+import { FirebaseConfig } from './keys.prod';
 
 export const environment = {
   production: true,

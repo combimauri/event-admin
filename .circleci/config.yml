@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: circleci/node:10.15.3-browsers
+      - image: circleci/node:18.12.0-browsers
     steps:
       - checkout
       - run:
@@ -15,20 +15,17 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
       - run:
-          name: Linting
-          command: npm run lint
-      - run:
           name: Inject keys
           command: npm run keys:inject
       - run:
           name: Building
-          command: npm run build
+          command: npm run build:prod
       - save_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
@@ -39,7 +36,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:10.15.3-browsers
+      - image: circleci/node:18.12.0-browsers
     working_directory: ~/project
     steps:
       - run:
@@ -48,11 +45,8 @@ jobs:
       - restore_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: Install Firebase
-          command: npm install --save-dev firebase-tools
-      - run:
           name: Deploy Develop to Firebase
-          command: npm run firebase:deploy -- --token=$FIREBASE_DEPLOY_TOKEN
+          command: npm run firebase:deploy-prod -- --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   version: 2
@@ -61,10 +55,10 @@ workflows:
       - build:
           filters:
             branches:
-              only: master
+              only: main
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: master
+              only: main

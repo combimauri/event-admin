@@ -1,12 +1,20 @@
 {
   "projects": {
-    "default": "devfest2022dev"
+    "default": "devfest2022dev",
+    "prod": "devfest-bolivia-2022"
   },
   "targets": {
     "devfest2022dev": {
       "hosting": {
         "admin": [
           "devfest-devadmin"
+        ]
+      }
+    },
+    "devfest-bolivia-2022": {
+      "hosting": {
+        "admin": [
+          "admin-devfest-bo"
         ]
       }
     }

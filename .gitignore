@@ -43,6 +43,7 @@ testem.log
 /typings
 /.firebase
 /src/environments/keys.ts
+/src/environments/keys.prod.ts
 
 # System Files
 .DS_Store
