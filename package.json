@@ -12,7 +12,7 @@
     "keys:create": "cat ./src/environments/keys.template.ts > ./src/environments/keys.ts",
     "keys:create-prod": "cat ./src/environments/keys.template.ts > ./src/environments/keys.prod.ts",
     "keys:inject": "echo $KEYS > ./src/environments/keys.ts",
-    "keys:inject-prod": "echo $KEYS > ./src/environments/keys.prod.ts",
+    "keys:inject-prod": "echo $PROD_KEYS > ./src/environments/keys.prod.ts",
     "firebase:deploy": "firebase deploy -P default --only hosting:admin",
     "firebase:deploy-prod": "firebase deploy -P prod --only hosting:admin",
     "firebase:build-deploy": "npm run build && npm run firebase:deploy",

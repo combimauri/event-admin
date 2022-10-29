@@ -1,9 +1,9 @@
 version: 2
 jobs:
-  build:
+  build-prod:
     working_directory: ~/project
     docker:
-      - image: circleci/node:18.12.0-browsers
+      - image: cimg/node:18.12.0-browsers
     steps:
       - checkout
       - run:
@@ -22,7 +22,7 @@ jobs:
             - node_modules
       - run:
           name: Inject keys
-          command: npm run keys:inject
+          command: npm run keys:inject-prod
       - run:
           name: Building
           command: npm run build:prod
@@ -34,9 +34,9 @@ jobs:
             - firebase.json
             - .firebaserc
 
-  deploy:
+  deploy-prod:
     docker:
-      - image: circleci/node:18.12.0-browsers
+      - image: cimg/node:18.12.0-browsers
     working_directory: ~/project
     steps:
       - run:
@@ -52,13 +52,13 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build:
+      - build-prod:
           filters:
             branches:
               only: main
-      - deploy:
+      - deploy-prod:
           requires:
-            - build
+            - build-prod
           filters:
             branches:
               only: main
