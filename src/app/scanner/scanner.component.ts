@@ -3,7 +3,7 @@ import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../core/services/auth/auth.service';
 import { AuthUser } from '../core/models/auth-user.model';
 import { PostulantsService } from '../core/services/postulants.service';
 import { Postulant } from '../core/models/postulant.model';

@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../core/services/auth/auth.service';
 import { AuthUser } from '../../core/models/auth-user.model';
 
 @Component({

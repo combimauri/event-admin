@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../core/services/auth/auth.service';
 import { AuthUser } from '../core/models/auth-user.model';
 import { Postulant } from '../core/models/postulant.model';
 import { PostulantsService } from '../core/services/postulants.service';
@@ -11,7 +11,6 @@ import { PostulantsService } from '../core/services/postulants.service';
 @Component({
   selector: 'wc-assistants',
   templateUrl: './assistants.component.html',
-  styleUrls: ['./assistants.component.scss'],
 })
 export class AssistantsComponent implements OnInit, OnDestroy {
   assistants: Postulant[];

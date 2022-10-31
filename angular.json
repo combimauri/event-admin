@@ -52,6 +52,15 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "materialize-css",
+              "@cordobo/qrcode",
+              "core-js",
+              "raf",
+              "rgbcolor",
+              "dompurify",
+              "html2canvas"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "./node_modules"
@@ -85,16 +94,7 @@
                 }
               ],
               "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json",
-              "allowedCommonJsDependencies": [
-                "materialize-css",
-                "@cordobo/qrcode",
-                "core-js",
-                "raf",
-                "rgbcolor",
-                "dompurify",
-                "html2canvas"
-              ]
+              "ngswConfigPath": "ngsw-config.json"
             }
           },
           "defaultConfiguration": ""

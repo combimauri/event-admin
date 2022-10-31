@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../core/services/auth/auth.service';
 import { PostulantCredentialComponent } from '../../shared/components/postulant-credential/postulant-credential.component';
 import { PostulantsService } from '../../core/services/postulants.service';
 import { Postulant } from '../../core/models/postulant.model';
@@ -12,7 +12,6 @@ import { Postulant } from '../../core/models/postulant.model';
 @Component({
   selector: 'wc-postulant',
   templateUrl: './postulant.component.html',
-  styleUrls: ['./postulant.component.scss'],
 })
 export class PostulantComponent implements OnInit, OnDestroy {
   credential: PostulantCredentialComponent;

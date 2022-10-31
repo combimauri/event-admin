@@ -21,7 +21,6 @@ interface CredentialPositionData {
 @Component({
   selector: 'wc-credentials',
   templateUrl: './credentials.component.html',
-  styleUrls: ['./credentials.component.scss'],
 })
 export class CredentialsComponent {
   assistants$ = this.postulantsService.getAcceptedPostulants();

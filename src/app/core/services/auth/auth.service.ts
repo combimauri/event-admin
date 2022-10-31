@@ -6,7 +6,7 @@ import { Observable, of, timer } from 'rxjs';
 import { switchMap, first } from 'rxjs/operators';
 
 import { AuthUserService } from './auth-user.service';
-import { AuthUser } from '../core/models/auth-user.model';
+import { AuthUser } from '../../models/auth-user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
