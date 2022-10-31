@@ -1,4 +1,4 @@
-@use '../../../styles.colors.scss';
+@use '../../../styles.colors.scss' as colors;
 
 #sign-out-mobile {
   position: absolute;
@@ -13,5 +13,5 @@
 }
 
 .nav-wrapper {
-  background-color: $primary-color;
+  background-color: colors.$primary-color;
 }

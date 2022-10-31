@@ -1,5 +1,5 @@
-@use '../../../styles.colors.scss';
+@use '../../../styles.colors.scss' as colors;
 
 .page-footer {
-  background-color: $primary-color;
+  background-color: colors.$primary-color;
 }

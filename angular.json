@@ -62,9 +62,7 @@
               "html2canvas"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./node_modules"
-              ]
+              "includePaths": ["./node_modules"]
             }
           },
           "configurations": {
@@ -131,9 +129,7 @@
               "src/manifest.webmanifest"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./node_modules"
-              ]
+              "includePaths": ["./node_modules"]
             }
           }
         },
