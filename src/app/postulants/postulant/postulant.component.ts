@@ -1,12 +1,13 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { AuthService } from '../../core/services/auth/auth.service';
-import { Postulant } from '../../core/models/postulant.model';
-import { PostulantCredentialComponent } from '../../shared/components/postulant-credential/postulant-credential.component';
-import { PostulantsService } from '../../core/services/postulants.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { Postulant } from '../../core/models/postulant.model';
+import { AuthService } from '../../core/services/auth/auth.service';
+import { PostulantsService } from '../../core/services/postulants.service';
+import { PostulantCredentialComponent } from '../../shared/components/postulant-credential/postulant-credential.component';
 
 @Component({
   selector: 'wc-postulant',
@@ -33,7 +34,6 @@ export class PostulantComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((postulant) => {
         if (postulant) {
-          console.log('postulant', postulant);
           this.postulant = postulant;
         } else {
           this.router.navigate(['/']);
