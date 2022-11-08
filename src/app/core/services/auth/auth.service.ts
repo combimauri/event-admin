@@ -48,8 +48,9 @@ export class AuthService {
               if (!postulant) {
                 return this.userService.assertAuthUser(credential.user);
               }
-              this.message = 'This user does not have permission to access this site.'
-              throw new Error('This user does not have permission to access this site.');
+              this.message =
+                'This user does not have permission to access this site.';
+              throw new Error(this.message);
             }),
             first(),
           )
