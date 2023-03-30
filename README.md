@@ -50,7 +50,7 @@
 
 ### Run the project in prod mode with AOT compilation after build
 
-- Run `npx http-server dist/weekend-coding`
+- Run `npx http-server dist/event-admin`
 - Project will run by default in port 8080
 
 ### Deploy project

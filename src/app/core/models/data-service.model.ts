@@ -59,7 +59,7 @@ export abstract class DataService<T extends DataType> {
       );
   }
 
-  upsertData(data: T): Observable<void> {
+  upsertData(data: T): Observable<T> {
     let id = data.id;
 
     if (!id) {
@@ -67,15 +67,17 @@ export abstract class DataService<T extends DataType> {
       data.id = id;
     }
 
-    return from(this.dataCollection.doc(id).set(data, { merge: true }));
+    return from(this.dataCollection.doc(id).set(data, { merge: true })).pipe(
+      map(() => data),
+    );
   }
 
-  deleteData(data: T): Observable<void> {
+  deleteData(data: T): Observable<T> {
     if (data.id) {
       data.deleted = true;
       return this.upsertData(data);
     }
 
-    return of();
+    return of(null);
   }
 }

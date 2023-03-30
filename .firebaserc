@@ -1,20 +1,13 @@
 {
   "projects": {
-    "default": "devfest2022dev",
-    "prod": "devfest-bolivia-2022"
+    "default": "iwd-website",
+    "prod": "iwd-website"
   },
   "targets": {
-    "devfest2022dev": {
+    "iwd-website": {
       "hosting": {
         "admin": [
-          "devfest-devadmin"
-        ]
-      }
-    },
-    "devfest-bolivia-2022": {
-      "hosting": {
-        "admin": [
-          "admin-devfest-bo"
+          "iwd-cbba-admin"
         ]
       }
     }

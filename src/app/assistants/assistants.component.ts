@@ -18,7 +18,8 @@ import {
   styleUrls: ['./assistants.component.scss'],
 })
 export class AssistantsComponent implements OnInit, OnDestroy {
-  assistants: Postulant[];
+  assistants: Postulant[] = [];
+  checkInPostulants$ = this.postulantsService.getCheckedInPostulants();
   currentAssistant: Postulant;
   currentUser$ = this.auth.getCurrentUser();
   registrationFields = registrationFields;
@@ -26,6 +27,10 @@ export class AssistantsComponent implements OnInit, OnDestroy {
   workshops = workshops;
 
   Ticket = Ticket;
+
+  get visibleAssistants(): Postulant[] {
+    return this.assistants.filter((assistant) => assistant.visibleInSearch);
+  }
 
   private unsubscribe$ = new Subject<void>();
 

@@ -32,9 +32,19 @@ export class PostulantsService extends DataService<Postulant> {
       .collection<Postulant>(this.collection, (ref) =>
         ref
           .where('deleted', '==', false)
-          // @TODO Uncomment this
-          // .where('validated', '==', true)
+          .where('validated', '==', true)
           .orderBy('fullName', DataOrder.asc),
+      )
+      .valueChanges();
+  }
+
+  getCheckedInPostulants(): Observable<Postulant[]> {
+    return this.db
+      .collection<Postulant>(this.collection, (ref) =>
+        ref
+          .where('deleted', '==', false)
+          .where('validated', '==', true)
+          .where('checkIn', '==', true),
       )
       .valueChanges();
   }

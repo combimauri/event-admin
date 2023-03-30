@@ -6,13 +6,13 @@
           <div class="col s12 m9">
             <h3>Postulants ({{ visiblePostulants.length }})</h3>
           </div>
-          <div class="col s12 m3 right-align">
+          <!-- <div class="col s12 m3 right-align">
             <a
               routerLink="/credentials"
               class="postulant-print-btn waves-effect waves-light btn"
               >Bracelets</a
             >
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -27,40 +27,6 @@
           (ngModelChange)="searchPostulant()"
         />
       </div>
-      <div class="input-field col s12 m8">
-        <form class="ticket-filter">
-          <p (click)="applyTicketFilter(null)">
-            <label>
-              <input name="ticketFilter" type="radio" checked />
-              <span>TODOS</span>
-            </label>
-          </p>
-          <p (click)="applyTicketFilter(Ticket.ROJO)">
-            <label>
-              <input name="ticketFilter" type="radio" />
-              <span>ROJO</span>
-            </label>
-          </p>
-          <p (click)="applyTicketFilter(Ticket.AMARILLO)">
-            <label>
-              <input name="ticketFilter" type="radio" />
-              <span>AMARILLO</span>
-            </label>
-          </p>
-          <p (click)="applyTicketFilter(Ticket.VERDE)">
-            <label>
-              <input name="ticketFilter" type="radio" />
-              <span>VERDE</span>
-            </label>
-          </p>
-          <p (click)="applyTicketFilter(Ticket.AZUL)">
-            <label>
-              <input name="ticketFilter" type="radio" />
-              <span>AZUL</span>
-            </label>
-          </p>
-        </form>
-      </div>
     </div>
     <span class="hide-on-med-and-up">
       *Rotate your phone to see all table options
@@ -71,9 +37,7 @@
           <th>#</th>
           <th>Name</th>
           <th class="hide-on-small-only">Phone</th>
-          <th>Ticket</th>
           <th class="hide-on-small-only">Transfer file</th>
-          <th class="hide-on-small-only">Shirt Size</th>
           <th class="center-align hide-on-small-only">Validated</th>
           <th></th>
         </tr>
@@ -89,18 +53,17 @@
               <a [routerLink]="['/postulants', postulant.id]">{{ i + 1 }}</a>
             </td>
             <td>
-              <a [routerLink]="['/postulants', postulant.id]">{{
-                postulant.fullName
-              }}</a>
+              <a [routerLink]="['/postulants', postulant.id]">
+                {{ postulant.fullName }}
+                <br />
+                <span style="font-size: 12px">
+                  {{ postulant.email }}
+                </span>
+              </a>
             </td>
             <td class="hide-on-small-only">
               <a [routerLink]="['/postulants', postulant.id]">{{
                 postulant.phone
-              }}</a>
-            </td>
-            <td>
-              <a [routerLink]="['/postulants', postulant.id]">{{
-                postulant.ticket
               }}</a>
             </td>
             <td class="hide-on-small-only">
@@ -111,11 +74,6 @@
               >
                 File
               </a>
-            </td>
-            <td>
-              <a [routerLink]="['/postulants', postulant.id]">{{
-                postulant.shirtSize
-              }}</a>
             </td>
             <td class="center-align hide-on-small-only">
               <label>

@@ -4,7 +4,10 @@
       <div class="col s12 postulant-header">
         <div class="row">
           <div class="col s12 m9">
-            <h3>Assistants</h3>
+            <h3>Assistants ({{ visibleAssistants.length }})</h3>
+            <span *ngIf="checkInPostulants$ | async as checkInPostulants">
+              CheckIn Count: ({{ checkInPostulants.length }})
+            </span>
           </div>
           <!-- TODO: Define if this will be used: -->
           <!-- <div class="col s12 m3 right-align">
@@ -42,87 +45,30 @@
           <ng-container *ngIf="assistant.visibleInSearch">
             <td>{{ i + 1 }}</td>
             <td>
-              {{ assistant.fullName }} <br />
-              <span class="ticket-{{ assistant.ticket | lowercase }}">
-                Ticket: {{ assistant.ticket }}
-              </span>
+              <b>
+                {{ assistant.fullName }}
+              </b>
               <br />
-              Food Restriction: {{ assistant.foodRestriction }}
+              <span style="font-size: 12px">
+                Email: {{ assistant.email }}
+                <br />
+                Phone: {{ assistant.phone }}
+                <br />
+                Food Restriction: {{ assistant.foodRestriction }}
+              </span>
             </td>
             <td>
-              <p>Viernes 18</p>
-              <p
-                *ngFor="
-                  let field of registrationFields[assistant.ticket].firstDay
-                "
-              >
-                <ng-container
-                  [ngTemplateOutlet]="registrationBox"
-                  [ngTemplateOutletContext]="{ field: field }"
-                ></ng-container>
-              </p>
-              <hr />
-              <p>Sábado 19</p>
-              <p
-                *ngFor="
-                  let field of registrationFields[assistant.ticket].secondDay
-                "
-              >
-                <ng-container
-                  [ngTemplateOutlet]="registrationBox"
-                  [ngTemplateOutletContext]="{ field: field }"
-                ></ng-container>
-              </p>
-              <ng-container
-                *ngIf="
-                  assistant.ticket === Ticket.ROJO ||
-                  assistant.ticket === Ticket.AMARILLO ||
-                  assistant.ticket === Ticket.AZUL ||
-                  assistant.shirtSize
-                "
-              >
-                <hr />
-                <p>Souvenirs</p>
-                <p
-                  *ngFor="
-                    let field of registrationFields[assistant.ticket].souvenirs
+              <label>
+                <input
+                  type="checkbox"
+                  [checked]="assistant.checkIn"
+                  (change)="
+                    assistant.checkIn = !assistant.checkIn;
+                    postulantsService.upsertData(assistant)
                   "
-                >
-                  <ng-container
-                    [ngTemplateOutlet]="registrationBox"
-                    [ngTemplateOutletContext]="{ field: field }"
-                  ></ng-container>
-                </p>
-              </ng-container>
-              <hr />
-              <p>Talleres</p>
-              <p *ngFor="let field of workshops">
-                <ng-container
-                  [ngTemplateOutlet]="registrationBox"
-                  [ngTemplateOutletContext]="{ field: field }"
-                ></ng-container>
-              </p>
-
-              <ng-template #registrationBox let-field="field">
-                <label *ngIf="field.field !== 'shirt' || assistant.shirtSize">
-                  <input
-                    type="checkbox"
-                    [checked]="assistant[field.field]"
-                    (change)="
-                      assistant[field.field] = !assistant[field.field];
-                      postulantsService.upsertData(assistant)
-                    "
-                  />
-                  <span>
-                    {{ field.label }}
-                    {{
-                      field.field === 'shirt'
-                        ? '"' + assistant.shirtSize + '"'
-                        : ''
-                    }}
-                  </span>
-                </label>
-              </ng-template>
+                />
+                <span> CheckIn </span>
+              </label>
             </td>
           </ng-container>
         </tr>

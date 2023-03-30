@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "weekend-coding": {
+    "event-admin": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -34,7 +34,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/weekend-coding",
+            "outputPath": "dist/event-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -102,18 +102,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "weekend-coding:build"
+            "browserTarget": "event-admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "weekend-coding:build:production"
+              "browserTarget": "event-admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "weekend-coding:build"
+            "browserTarget": "event-admin:build"
           }
         },
         "test": {
@@ -140,7 +140,7 @@
           "options": {
             "prerender": false,
             "ssr": false,
-            "browserTarget": "weekend-coding:build:production",
+            "browserTarget": "event-admin:build:production",
             "firebaseProject": "devfest2022dev",
             "firebaseHostingSite": "devfest-devadmin"
           }
@@ -153,7 +153,7 @@
         }
       }
     },
-    "weekend-coding-e2e": {
+    "event-admin-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -162,11 +162,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "weekend-coding:serve"
+            "devServerTarget": "event-admin:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "weekend-coding:serve:production"
+              "devServerTarget": "event-admin:serve:production"
             }
           }
         }

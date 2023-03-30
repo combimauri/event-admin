@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "admin",
-      "public": "dist/weekend-coding",
+      "public": "dist/event-admin",
       "ignore": ["**/.*"],
       "headers": [
         {
